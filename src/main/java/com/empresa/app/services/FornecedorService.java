@@ -25,6 +25,21 @@ public class FornecedorService {
     public List<FornecedorDto> findAll() {
         List<FornecedorModel> listaFornecedorModel = fornecedorRepository.findAll();
         return listaFornecedorModel.stream().map(FornecedorDto::new).toList();
+
+        /*
+         * A linha de comando:
+         * 
+         * listaFornecedorModel.stream().map(FornecedorDto::new).toList();
+         * 
+         * Corresponde a:
+         * 
+         * List<FornecedorDto> listaFornecedorDto = new ArrayList<>();
+         *
+         * for (FornecedorModel fornecedorModel : listaFornecedorModel) {
+         *   listaFornecedorDto.add(new FornecedorDto(fornecedorModel));
+         * }
+         * 
+        */
     }
 
     @Transactional(readOnly = true)
